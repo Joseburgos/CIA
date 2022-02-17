@@ -1,0 +1,74 @@
+<div>
+
+    <div class="d-flex justify-content-between">
+      <h4>Form to create vehicles</h4>
+      <a href="#" routerLink="/vehiculos/index" class="btn btn-primaryt">Back</a>
+    </div>
+  
+    <hr/>
+  
+      <form [formGroup]="form" (ngSubmit)="submit()">
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="title">Decription:</label>
+                <input
+                  formControlName="description"
+                  id="description"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.description.touched && f.description.invalid" class="alert alert-danger">
+                    <div *ngIf="f.description.errors.required">*Description is required.</div>
+                    <div *ngIf="f.description.errors.pattern">*The description must only contain letters.</div>
+                </div>
+              </div>
+          </div>
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="type">Email:</label>
+                <input
+                  formControlName="type"
+                  id="type"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.type.touched && f.type.invalid" class="alert alert-danger">
+                    <div *ngIf="f.type.errors.required">*Type is required.</div>
+                    <div *ngIf="f.type.errors.pattern">*The type must be a valid.</div>
+                </div>
+              </div>
+          </div>
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="numberTire">Number of Tires:</label>
+                <input
+                  formControlName="numberTire"
+                  id="numberTire"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.numberTire.touched && f.numberTire.invalid" class="alert alert-danger">
+                    <div *ngIf="f.numberTire.errors.required">*Number of Tires is required.</div>
+                    <div *ngIf="f.numberTire.errors.pattern">*The number of tires must only contain numbers.</div>
+                </div>
+              </div>
+          </div>
+  
+          <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="horsePower">Horse Power:</label>
+              <input
+                formControlName="horsePower"
+                id="horsePower"
+                type="text"
+                class="form-control">
+              <div *ngIf="f.horsePower.touched && f.horsePower.invalid" class="alert alert-danger">
+                  <div *ngIf="f.horsePower.errors.required">*horse Power is required.</div>
+                  <div *ngIf="f.horsePower.errors.pattern">*The horse power must only contain numbers.</div>
+              </div>
+            </div>
+        </div>
+
+          <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+      </form>
+  </div>

@@ -1,0 +1,30 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>Lista de vehiculos</h4>
+      <a routerLink="/vehiculos/create" class="btn btn-success" >Nuevo</a>
+    </div>
+
+    <br>
+    
+    <table class="table ">
+      <tr>
+        <th>ID</th>
+        <th width="220px">Description</th>
+        <th>Type</th>
+        <th>Numbers of Tires</th>
+        <th>HP</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let vehiculo of vehiculos">
+        <td>{{ vehiculo.id }}</td>
+        <td>{{ vehiculo.description }}</td>
+        <td>{{ vehiculo.type }}</td>
+        <td>{{ vehiculo.numberTire }}</td>
+        <td>{{ vehiculo.horsePower }}</td>
+        <td>
+          <button type="button" (click)="deleteVehiculo(vehiculo.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </table>
+ </section>
